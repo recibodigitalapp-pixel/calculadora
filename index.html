@@ -12,12 +12,13 @@
       :root {
         color-scheme: light;
         --yellow: #ffd23f;
-        --paper: #f8fafc;
-        --ink: #101114;
-        --muted: rgba(16, 17, 20, 0.7);
+        --bg: #eef3f6;
+        --surface: #ffffff;
+        --ink: #15181d;
+        --muted: #5b6572;
         --teal: #0f766e;
-        --line: rgba(16, 17, 20, 0.12);
-        --shadow: 0 16px 34px rgba(16, 17, 20, 0.18);
+        --line: rgba(21, 24, 29, 0.1);
+        --shadow: 0 22px 44px rgba(21, 24, 29, 0.14);
       }
 
       * {
@@ -30,25 +31,48 @@
       }
 
       body {
-        background:
-          linear-gradient(180deg, var(--yellow) 0 42%, var(--paper) 42% 100%);
+        background: var(--bg);
         color: var(--ink);
-        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-family: Arial, Helvetica, sans-serif;
         margin: 0;
       }
 
       .download-page {
+        align-items: center;
         display: grid;
-        min-height: 100vh;
-        padding: 18px 14px 22px;
-        place-items: center;
+        min-height: 100svh;
+        overflow: hidden;
+        padding: 18px 14px 24px;
+        position: relative;
+      }
+
+      .download-page::before {
+        background: var(--yellow);
+        border-bottom: 1px solid rgba(21, 24, 29, 0.08);
+        content: "";
+        height: 148px;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 0;
       }
 
       .hero {
         margin: 0 auto;
-        max-width: 460px;
-        text-align: center;
+        max-width: 430px;
+        position: relative;
+        text-align: left;
         width: 100%;
+        z-index: 1;
+      }
+
+      .download-card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        box-shadow: var(--shadow);
+        padding: 18px;
       }
 
       h1,
@@ -57,114 +81,116 @@
         margin-top: 0;
       }
 
-      h1 {
-        font-size: clamp(0.96rem, 4.8vw, 2rem);
-        font-weight: 950;
-        letter-spacing: 0;
-        line-height: 1.05;
-        margin-bottom: 14px;
-        white-space: nowrap;
-      }
-
-      h2 {
-        font-size: clamp(1.9rem, 10vw, 3.35rem);
-        font-weight: 950;
-        line-height: 0.98;
-        margin-bottom: 12px;
-      }
-
-      .copy {
-        color: var(--muted);
-        font-size: 0.98rem;
-        font-weight: 650;
-        line-height: 1.42;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 360px;
-      }
-
-      .app-panel {
-        background: rgba(255, 255, 255, 0.76);
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        box-shadow: 0 12px 32px rgba(16, 17, 20, 0.1);
-        margin: 18px auto 0;
-        padding: 16px;
-        text-align: left;
-      }
-
       .app-row {
         align-items: center;
         display: flex;
-        gap: 12px;
+        gap: 10px;
+        margin-bottom: 18px;
       }
 
       .app-icon {
         align-items: center;
         background: var(--teal);
-        border-radius: 14px;
+        border-radius: 13px;
         color: #ffffff;
         display: inline-flex;
-        flex: 0 0 48px;
-        font-size: 1.45rem;
-        font-weight: 950;
-        height: 48px;
+        flex: 0 0 46px;
+        font-size: 1.14rem;
+        font-weight: 800;
+        height: 46px;
         justify-content: center;
-        width: 48px;
+        width: 46px;
       }
 
-      .app-name {
-        font-size: 1.02rem;
-        font-weight: 900;
-        margin: 0 0 3px;
-      }
-
-      .app-subtitle {
-        color: var(--muted);
-        font-size: 0.82rem;
-        font-weight: 700;
+      h1 {
+        font-size: clamp(0.96rem, 4.4vw, 1.2rem);
+        font-weight: 800;
+        letter-spacing: 0;
+        line-height: 1.1;
         margin: 0;
+        white-space: nowrap;
+      }
+
+      .eyebrow {
+        color: var(--teal);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        font-size: clamp(1.62rem, 8vw, 2.28rem);
+        font-weight: 800;
+        letter-spacing: 0;
+        line-height: 1.04;
+        margin-bottom: 10px;
+      }
+
+      .copy {
+        color: var(--muted);
+        font-size: 0.98rem;
+        font-weight: 500;
+        line-height: 1.42;
+        margin-bottom: 16px;
+      }
+
+      .features {
+        display: grid;
+        gap: 8px;
+        list-style: none;
+        margin: 0 0 18px;
+        padding: 0;
+      }
+
+      .features li {
+        align-items: center;
+        color: #303741;
+        display: flex;
+        font-size: 0.9rem;
+        font-weight: 650;
+        gap: 8px;
+      }
+
+      .features li::before {
+        background: var(--teal);
+        border-radius: 999px;
+        content: "";
+        height: 7px;
+        width: 7px;
       }
 
       .download-button {
         align-items: center;
         background: var(--ink);
-        border: 2px solid var(--ink);
-        border-radius: 14px;
-        box-shadow: var(--shadow);
+        border: 0;
+        border-radius: 13px;
+        box-shadow: 0 13px 22px rgba(21, 24, 29, 0.18);
         color: #ffffff;
         cursor: pointer;
         display: flex;
-        font-size: 1.05rem;
-        font-weight: 950;
+        font-size: 1rem;
+        font-weight: 800;
         justify-content: center;
-        letter-spacing: 0.04em;
-        margin-top: 16px;
+        letter-spacing: 0;
         min-height: 56px;
-        width: 100%;
-        opacity: 1;
         padding: 0 28px;
         text-decoration: none;
+        width: 100%;
       }
 
       .download-button:active {
         transform: translateY(1px);
       }
 
-      .note {
-        color: rgba(16, 17, 20, 0.62);
-        font-size: 0.82rem;
-        font-weight: 750;
-        margin: 11px 0 0;
-        text-align: center;
-      }
-
-      .version {
-        color: rgba(16, 17, 20, 0.62);
-        font-size: 0.8rem;
+      .meta-row {
+        color: #717b87;
+        display: flex;
+        font-size: 0.78rem;
         font-weight: 700;
-        margin: 8px 0 0;
-        text-align: center;
+        justify-content: space-between;
+        margin-top: 12px;
       }
 
       @media (max-width: 420px) {
@@ -172,21 +198,26 @@
           padding: 16px 12px 20px;
         }
 
-        .copy {
-          max-width: 330px;
+        .download-card {
+          border-radius: 20px;
+          padding: 16px;
+        }
+
+        h2 {
+          max-width: 320px;
         }
       }
 
       @media (min-width: 700px) {
+        .download-page {
+          padding: 42px 20px;
+        }
+
+        .download-page::before {
+          height: 176px;
+        }
+
         .hero {
-          max-width: 600px;
-        }
-
-        .copy {
-          max-width: 460px;
-        }
-
-        .app-panel {
           max-width: 430px;
         }
       }
@@ -194,28 +225,31 @@
   </head>
   <body>
     <main class="download-page">
-      <section class="hero" aria-labelledby="app-title">
-        <h1 id="app-title">Calculadora de Corridas taxi RJ</h1>
-        <h2>Estimativa de corrida no celular</h2>
+      <section class="hero download-card" aria-labelledby="app-title">
+        <div class="app-row">
+          <span class="app-icon">RJ</span>
+          <h1 id="app-title">Calculadora de Corridas taxi RJ</h1>
+        </div>
+
+        <p class="eyebrow">APK para Android</p>
+        <h2>Calcule sua corrida antes de sair</h2>
 
         <p class="copy">
-          Calcule valor, distancia e tempo aproximado informando partida e destino.
+          Informe partida e destino para estimar valor, distancia e tempo de viagem.
         </p>
 
-        <div class="app-panel" aria-label="Download do aplicativo">
-          <div class="app-row">
-            <span class="app-icon">RJ</span>
-            <div>
-              <p class="app-name">Calculadora de Corridas</p>
-              <p class="app-subtitle">APK Android atualizado</p>
-            </div>
-          </div>
+        <ul class="features" aria-label="Recursos principais">
+          <li>Enderecos com sugestoes no Brasil</li>
+          <li>Resultado com valor, distancia e tempo</li>
+          <li>Consultas recentes salvas no aparelho</li>
+        </ul>
 
-          <a class="download-button" href="https://raw.githubusercontent.com/recibodigitalapp-pixel/calculadora/main/CalculadoraDeCorridas-Mapa.apk" download="CalculadoraDeCorridas.apk">
-            BAIXAR APP
-          </a>
-          <p class="note">Instale o APK no Android para usar a calculadora.</p>
-          <p class="version">Versao 2.6</p>
+        <a class="download-button" href="https://raw.githubusercontent.com/recibodigitalapp-pixel/calculadora/main/CalculadoraDeCorridas-Mapa.apk" download="CalculadoraDeCorridas.apk">
+          Baixar app
+        </a>
+        <div class="meta-row">
+          <span>Versao 2.6</span>
+          <span>APK Android</span>
         </div>
       </section>
     </main>
