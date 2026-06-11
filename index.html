@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Calculadora de Corridas</title>
+    <title>Calculadora de Corridas taxi RJ</title>
     <meta
       name="description"
       content="Calculadora de Corridas para Android: estime valor, distancia e tempo de viagem com enderecos do Brasil."
@@ -12,10 +12,12 @@
       :root {
         color-scheme: light;
         --yellow: #ffd23f;
+        --paper: #f8fafc;
         --ink: #101114;
-        --muted: rgba(16, 17, 20, 0.72);
+        --muted: rgba(16, 17, 20, 0.7);
         --teal: #0f766e;
-        --shadow: 0 22px 55px rgba(16, 17, 20, 0.2);
+        --line: rgba(16, 17, 20, 0.12);
+        --shadow: 0 16px 34px rgba(16, 17, 20, 0.18);
       }
 
       * {
@@ -28,22 +30,23 @@
       }
 
       body {
-        background: var(--yellow);
+        background:
+          linear-gradient(180deg, var(--yellow) 0 42%, var(--paper) 42% 100%);
         color: var(--ink);
         font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         margin: 0;
       }
 
       .download-page {
-        align-items: center;
         display: grid;
         min-height: 100vh;
-        padding: 24px 16px;
+        padding: 18px 14px 22px;
+        place-items: center;
       }
 
       .hero {
         margin: 0 auto;
-        max-width: 660px;
+        max-width: 460px;
         text-align: center;
         width: 100%;
       }
@@ -55,44 +58,90 @@
       }
 
       h1 {
-        font-size: clamp(3.45rem, 16vw, 7rem);
+        font-size: clamp(0.96rem, 4.8vw, 2rem);
+        font-weight: 950;
         letter-spacing: 0;
-        line-height: 0.9;
-        margin-bottom: 18px;
+        line-height: 1.05;
+        margin-bottom: 14px;
+        white-space: nowrap;
       }
 
       h2 {
-        font-size: clamp(1.55rem, 7vw, 2.85rem);
-        line-height: 1.04;
-        margin-bottom: 16px;
+        font-size: clamp(1.9rem, 10vw, 3.35rem);
+        font-weight: 950;
+        line-height: 0.98;
+        margin-bottom: 12px;
       }
 
       .copy {
         color: var(--muted);
-        font-size: 1.04rem;
+        font-size: 0.98rem;
         font-weight: 650;
-        line-height: 1.5;
+        line-height: 1.42;
         margin-left: auto;
         margin-right: auto;
-        max-width: 560px;
+        max-width: 360px;
+      }
+
+      .app-panel {
+        background: rgba(255, 255, 255, 0.76);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: 0 12px 32px rgba(16, 17, 20, 0.1);
+        margin: 18px auto 0;
+        padding: 16px;
+        text-align: left;
+      }
+
+      .app-row {
+        align-items: center;
+        display: flex;
+        gap: 12px;
+      }
+
+      .app-icon {
+        align-items: center;
+        background: var(--teal);
+        border-radius: 14px;
+        color: #ffffff;
+        display: inline-flex;
+        flex: 0 0 48px;
+        font-size: 1.45rem;
+        font-weight: 950;
+        height: 48px;
+        justify-content: center;
+        width: 48px;
+      }
+
+      .app-name {
+        font-size: 1.02rem;
+        font-weight: 900;
+        margin: 0 0 3px;
+      }
+
+      .app-subtitle {
+        color: var(--muted);
+        font-size: 0.82rem;
+        font-weight: 700;
+        margin: 0;
       }
 
       .download-button {
         align-items: center;
         background: var(--ink);
         border: 2px solid var(--ink);
-        border-radius: 18px;
+        border-radius: 14px;
         box-shadow: var(--shadow);
         color: #ffffff;
         cursor: pointer;
-        display: inline-flex;
+        display: flex;
         font-size: 1.05rem;
         font-weight: 950;
         justify-content: center;
         letter-spacing: 0.04em;
-        margin-top: 18px;
-        min-height: 62px;
-        min-width: min(100%, 290px);
+        margin-top: 16px;
+        min-height: 56px;
+        width: 100%;
         opacity: 1;
         padding: 0 28px;
         text-decoration: none;
@@ -104,25 +153,41 @@
 
       .note {
         color: rgba(16, 17, 20, 0.62);
-        font-size: 0.86rem;
+        font-size: 0.82rem;
         font-weight: 750;
-        margin: 12px 0 0;
+        margin: 11px 0 0;
+        text-align: center;
       }
 
       .version {
         color: rgba(16, 17, 20, 0.62);
-        font-size: 0.84rem;
+        font-size: 0.8rem;
         font-weight: 700;
-        margin: 10px 0 0;
+        margin: 8px 0 0;
+        text-align: center;
       }
 
       @media (max-width: 420px) {
         .download-page {
-          padding: 20px 14px;
+          padding: 16px 12px 20px;
         }
 
-        .download-button {
-          width: 100%;
+        .copy {
+          max-width: 330px;
+        }
+      }
+
+      @media (min-width: 700px) {
+        .hero {
+          max-width: 600px;
+        }
+
+        .copy {
+          max-width: 460px;
+        }
+
+        .app-panel {
+          max-width: 430px;
         }
       }
     </style>
@@ -130,19 +195,28 @@
   <body>
     <main class="download-page">
       <section class="hero" aria-labelledby="app-title">
-        <h1 id="app-title">Calculadora de Corridas</h1>
-        <h2>Estimativa rapida para viagens</h2>
+        <h1 id="app-title">Calculadora de Corridas taxi RJ</h1>
+        <h2>Estimativa de corrida no celular</h2>
 
         <p class="copy">
-          Calcule valor, distancia e tempo aproximado da corrida informando enderecos do Brasil.
-          O app salva consultas recentes, usa sugestoes de endereco e mostra o resultado de forma simples.
+          Calcule valor, distancia e tempo aproximado informando partida e destino.
         </p>
 
-        <a class="download-button" href="https://raw.githubusercontent.com/recibodigitalapp-pixel/calculadora/main/CalculadoraDeCorridas-Mapa.apk" download="CalculadoraDeCorridas.apk">
-          DOWNLOAD APP
-        </a>
-        <p class="note">Baixe o APK atualizado para Android.</p>
-        <p class="version">Versao 2.6</p>
+        <div class="app-panel" aria-label="Download do aplicativo">
+          <div class="app-row">
+            <span class="app-icon">RJ</span>
+            <div>
+              <p class="app-name">Calculadora de Corridas</p>
+              <p class="app-subtitle">APK Android atualizado</p>
+            </div>
+          </div>
+
+          <a class="download-button" href="https://raw.githubusercontent.com/recibodigitalapp-pixel/calculadora/main/CalculadoraDeCorridas-Mapa.apk" download="CalculadoraDeCorridas.apk">
+            BAIXAR APP
+          </a>
+          <p class="note">Instale o APK no Android para usar a calculadora.</p>
+          <p class="version">Versao 2.6</p>
+        </div>
       </section>
     </main>
   </body>
