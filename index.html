@@ -84,7 +84,7 @@
         border-radius: 18px;
         box-shadow: var(--shadow);
         color: #ffffff;
-        cursor: not-allowed;
+        cursor: pointer;
         display: inline-flex;
         font-size: 1.05rem;
         font-weight: 950;
@@ -93,9 +93,13 @@
         margin-top: 18px;
         min-height: 62px;
         min-width: min(100%, 290px);
-        opacity: 0.72;
+        opacity: 1;
         padding: 0 28px;
         text-decoration: none;
+      }
+
+      .download-button:active {
+        transform: translateY(1px);
       }
 
       .note {
@@ -134,11 +138,11 @@
           O app salva consultas recentes, usa sugestoes de endereco e mostra o resultado de forma simples.
         </p>
 
-        <a class="download-button" href="#" aria-disabled="true" onclick="return false;">
+        <a class="download-button" href="./CalculadoraDeCorridas-Mapa.apk" download="CalculadoraDeCorridas.apk">
           DOWNLOAD APP
         </a>
-        <p class="note">Download ainda indisponivel.</p>
-        <p class="version">Versao 2.2</p>
+        <p class="note">Baixe o APK atualizado para Android.</p>
+        <p class="version">Versao 2.3</p>
       </section>
     </main>
   </body>
