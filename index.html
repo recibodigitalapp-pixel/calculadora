@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Calculadora de Corridas</title>
+    <meta
+      name="description"
+      content="Calculadora de Corridas para Android: estime valor, distancia e tempo de viagem com enderecos do Brasil."
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --yellow: #ffd23f;
+        --ink: #101114;
+        --muted: rgba(16, 17, 20, 0.72);
+        --teal: #0f766e;
+        --shadow: 0 22px 55px rgba(16, 17, 20, 0.2);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+      }
+
+      body {
+        background: var(--yellow);
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        margin: 0;
+      }
+
+      .download-page {
+        align-items: center;
+        display: grid;
+        min-height: 100vh;
+        padding: 24px 16px;
+      }
+
+      .hero {
+        margin: 0 auto;
+        max-width: 660px;
+        text-align: center;
+        width: 100%;
+      }
+
+      h1,
+      h2,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        font-size: clamp(3.45rem, 16vw, 7rem);
+        letter-spacing: 0;
+        line-height: 0.9;
+        margin-bottom: 18px;
+      }
+
+      h2 {
+        font-size: clamp(1.55rem, 7vw, 2.85rem);
+        line-height: 1.04;
+        margin-bottom: 16px;
+      }
+
+      .copy {
+        color: var(--muted);
+        font-size: 1.04rem;
+        font-weight: 650;
+        line-height: 1.5;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 560px;
+      }
+
+      .download-button {
+        align-items: center;
+        background: var(--ink);
+        border: 2px solid var(--ink);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+        color: #ffffff;
+        cursor: not-allowed;
+        display: inline-flex;
+        font-size: 1.05rem;
+        font-weight: 950;
+        justify-content: center;
+        letter-spacing: 0.04em;
+        margin-top: 18px;
+        min-height: 62px;
+        min-width: min(100%, 290px);
+        opacity: 0.72;
+        padding: 0 28px;
+        text-decoration: none;
+      }
+
+      .note {
+        color: rgba(16, 17, 20, 0.62);
+        font-size: 0.86rem;
+        font-weight: 750;
+        margin: 12px 0 0;
+      }
+
+      .version {
+        color: rgba(16, 17, 20, 0.62);
+        font-size: 0.84rem;
+        font-weight: 700;
+        margin: 10px 0 0;
+      }
+
+      @media (max-width: 420px) {
+        .download-page {
+          padding: 20px 14px;
+        }
+
+        .download-button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="download-page">
+      <section class="hero" aria-labelledby="app-title">
+        <h1 id="app-title">Calculadora de Corridas</h1>
+        <h2>Estimativa rapida para viagens</h2>
+
+        <p class="copy">
+          Calcule valor, distancia e tempo aproximado da corrida informando enderecos do Brasil.
+          O app salva consultas recentes, usa sugestoes de endereco e mostra o resultado de forma simples.
+        </p>
+
+        <a class="download-button" href="#" aria-disabled="true" onclick="return false;">
+          DOWNLOAD APP
+        </a>
+        <p class="note">Download ainda indisponivel.</p>
+        <p class="version">Versao 2.2</p>
+      </section>
+    </main>
+  </body>
+</html>
